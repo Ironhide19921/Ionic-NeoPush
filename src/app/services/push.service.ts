@@ -73,7 +73,7 @@ export class PushService {
 
   }
 
-  guardarMensajes() {
+ async guardarMensajes() {
     this.storage.set( 'mensajes', this.mensajes);
   }
 
@@ -90,6 +90,23 @@ export class PushService {
     await this.storage.clear();
     this.mensajes = [];
     this.guardarMensajes();
+  }
+
+  async borrarMensaje(id) {
+    const existe = this.mensajes.find(mensaje => mensaje.notificationID === id);
+    console.log('elemento existe', existe);
+
+    if (existe) {
+      const indice = this.mensajes.indexOf(existe);
+      console.log('indice es ', indice);
+
+      console.log('antes splice ', this.mensajes);
+      this.mensajes.splice(indice, 1);
+      console.log('despues splice ', this.mensajes);
+
+      await this.guardarMensajes();
+    }
+
   }
 
 }

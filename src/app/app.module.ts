@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,6 +24,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     StatusBar,
     SplashScreen,
     OneSignal,
+    SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
